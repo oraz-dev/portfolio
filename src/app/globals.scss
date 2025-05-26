@@ -33,6 +33,99 @@ body {
     justify-content: center;
   }
 }
+
+// -- Main Content Area -- //
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--box-color);
+  width: 600px; // Max width for content
+  max-width: 95%; // Ensure it's responsive
+  height: fit-content;
+  border-radius: 1rem;
+  color: var(--secondary-font-color);
+  margin-top: 1.5rem; // Spacing from header or top of page
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-top: 1rem;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primary-font-color); // Ensure primary color for main heading
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--secondary-font-color);
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  p {
+    width: 450px; // Define a comfortable reading width
+    max-width: 100%; // Ensure it doesn't overflow container
+    line-height: 1.6;
+    color: var(--secondary-font-color);
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center; // Center icons if they don't fill the space
+  gap: 1.5rem; // Increased gap a bit for better spacing
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; // Make it perfectly round
+    width: 50px;
+    height: 50px;
+    color: var(--icon-color);
+    transition: background-color 0.3s ease, transform 0.2s ease; // Smooth transitions
+
+    &:hover {
+      cursor: pointer;
+      background-color: #293220; // From original card style
+      transform: scale(1.1); // Slight zoom on hover
+    }
+
+    &:active {
+      transform: scale(0.95); // Click effect
+    }
+
+    .icon {
+      // Padding already present in page.tsx for lucide icons, direct padding might not be needed here
+      // but if icons were SVGs or font icons without own padding, this would be useful:
+      // padding: 0.3rem; 
+    }
+  }
+}
+
 // --Pages--//
 
 .projects {
@@ -198,106 +291,6 @@ body {
     cursor: pointer;
   }
 }
-// --Card--//
-
-.card {
-  // position: relative;
-  display: flex;
-  max-width: 350px;
-  align-items: center;
-  justify-content: center;
-  margin: 0.3rem;
-  margin-top: 1.5rem;
-
-  @media (max-width: 376px) {
-    width: 95%;
-  }
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background-color: var(--box-color);
-  width: 600px;
-  height: fit-content;
-  border-radius: 1rem;
-  color: var(--secondary-font-color);
-  transform: translateZ(50px);
-
-  @media (max-width: 768px) {
-    width: 95%;
-  }
-
-  .shine {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 99;
-    border-radius: 1rem;
-    background-color: var(--box-color);
-    transition: background 0.3s ease;
-  }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: 500;
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  h3 {
-    margin-top: 0;
-    font-size: 1rem;
-    font-weight: 300;
-  }
-
-  p {
-    width: 450px;
-
-    @media (max-width: 768px) {
-      width: 80%;
-    }
-  }
-
-  .links {
-    width: 250px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 1rem;
-
-    .icon-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 3rem;
-      width: 50px;
-      height: 50px;
-
-      color: var(--icon-color);
-
-      &:hover {
-        cursor: pointer;
-        background-color: #293220;
-      }
-
-      .icon {
-        padding: 0.3rem;
-      }
-    }
-  }
-}
-
 // --Project--//
 .project {
   width: 700px;
