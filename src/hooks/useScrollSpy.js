@@ -8,6 +8,12 @@ export default function useScrollSpy(sectionIds) {
     const threshold = NAV_HEIGHT + 40;
 
     function updateActiveSection() {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+      if (atBottom) {
+        setActiveId(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
       let current = sectionIds[0];
 
       for (const id of sectionIds) {
